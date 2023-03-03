@@ -1,0 +1,112 @@
+h3 {
+  text-align: center;
+}
+
+/* 
+.button_item {
+  float: right;
+  font-size: 15px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-right: 5%;
+}
+
+.menu {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid grey;
+  width: fit-content;
+  margin-left: 25%;
+  margin-top: -5px;
+  background-color: #fff;
+}
+
+.menu>li {
+  margin: 0;
+  font-size: 15px;
+  background-color: white;
+}
+
+.menu>li:hover {
+  background-color: lightgray;
+}
+
+.menu>li>button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropdown_content {
+  float: right;
+}
+
+
+.App {
+  padding: 0;
+}
+
+.title {
+  background-color: #555555;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+}
+
+.todo_container {
+  width: 100%;
+}
+
+.listTodo {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1%;
+  width: 100%;
+}
+
+.item {
+  border-right: 1px solid black;
+  padding: 1%;
+  font-size: 20px;
+}
+
+.item3 {
+  padding: 1%;
+  font-size: 20px;
+}
+
+.add_new {
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .add_new input {
+  width: 20%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #555555;
+  padding: 5px;
+  font-size: 18px;
+} */
+
+/* .add_new button {
+  margin-left: 1%;
+  height: 48px;
+} */
+
+/* .add_new button:hover {
+  background-color: #333333;
+  color: #fff;
+} */
