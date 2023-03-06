@@ -62,7 +62,7 @@ exports.updateTodo = (req, res) => {
   const todo = req.todo;
   // simply change the task of the todo that user want to update by
   // the task that user has sent in req.body.task
-  todo.task = req.body.task;
+  todo.name = req.body.name;
   todo.status = req.body.status;
 
   // simply save that updated todo
