@@ -1,29 +1,32 @@
 import React from "react";
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-// import { finishListState, inprogressListState } from '../Recoil/listTodoState';
 import { Button, Container, Stack } from "@mui/material";
-import { todoState } from "../Recoil/atom";
-import { inprogressTodo } from "../Recoil/selector";
-import { getTodos, deleteTodo, updateTodo } from "../Recoil/toDoController";
-export const InprogressListComponent = () => {
+import { useUpdateTodo, useDelteTodo } from "../services";
+export const InprogressListComponent = (data: any) => {
+    const { isUpdating,
+        isSuccessUpdating,
+        isErrorUpdating,
+        errorUpdating,
+        UpdateTodo } = useUpdateTodo()
 
-    const setTodo = useSetRecoilState(todoState);
-    const getInProgreeTodo = useRecoilValue(inprogressTodo)
-    const getListTodo = () => {
-        getTodos().then((res) => setTodo(res))
+    const {
+        isDeleting,
+        isErrorDeleting,
+        errorDeleting,
+        DeleteTodo
+    } = useDelteTodo()
+
+    const changeStatus = (prop: any) => {
+        const id = prop._id;
+        const data = {
+            name: prop.name,
+            status: "finish"
+        };
+        UpdateTodo({ id, data } as any)
     }
 
-    const handleDelete = (id: number) => {
-        deleteTodo(id).then(() => {
-            getListTodo();
-        })
-    }
-    const changeStatus = (props: any) => {
-        // console.log('props: ' + JSON.stringify(props))
-        updateTodo({ id: props._id, data: { name: props.name, status: 'finish' } }).then(() => { getListTodo() })
+    // }
+    const inprogressList = data.inProgressToDo;
 
-    }
-    const inprogressList = getInProgreeTodo;
     return (
         <Container>
             <h3>In-progress list</h3>
@@ -32,7 +35,7 @@ export const InprogressListComponent = () => {
                 {inprogressList.length === 0 ? <h3>Empty</h3> : inprogressList.map((list: any) => (
                     <div key={list._id}>
                         {list.name}
-                        <Button variant="outlined" sx={{ height: 30, float: "right" }} onClick={() => handleDelete(list._id)}>Delete</Button>
+                        <Button variant="outlined" sx={{ height: 30, float: "right" }} onClick={() => DeleteTodo(list._id)}>Delete</Button>
                         <Button variant="outlined" sx={{ height: 30, float: "right", marginRight: "5px" }}
                             onClick={() => changeStatus(list)} className="button_item">{list.status}</Button>
                     </div>
